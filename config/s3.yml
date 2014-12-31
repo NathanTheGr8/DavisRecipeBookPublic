@@ -1,0 +1,3 @@
+access_key_id: 'Yourkey'
+secret_access_key: 'YourSecretKey'
+bucket: 'YourBucketName'

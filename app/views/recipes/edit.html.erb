@@ -1,0 +1,17 @@
+<h1>Editing Recipe</h1>
+
+<%= render 'form' %>
+
+<table>
+	<td class="white"><%= link_to recipe_path, :class => 'btn btn-primary button-margin' do %>
+          <span class="fa fa-info white"></span>
+          <span class="white">To Recipe</span>
+          <% end %>
+    </td>
+    <td class="white"><%= link_to recipes_path, :class => 'btn btn-primary button-margin' do %>
+          <span class="fa fa-arrow-left white"></span>
+          <span class="white">To Cookbook</span>
+          <% end %>
+    </td>
+</table>
+

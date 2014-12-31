@@ -1,0 +1,119 @@
+
+<div class="container-fluid">
+
+    <h2>
+      <strong><%= @recipe.name %></strong>
+    </h2>
+
+    <%= image_tag @recipe.picture.url(:lg) ,class: "img-responsive visible-lg visible-md rounded-pic"%>
+    <%= image_tag @recipe.picture.url(:lg) ,class: "img-responsive visible-sm rounded-pic"%>
+    <%= image_tag @recipe.picture.url(:md) ,class: "img-responsive visible-xs rounded-pic"%>
+
+    <h3>
+      By <%= @recipe.user.name %>
+    </h3>
+
+    <h4>
+      Serving Size : <%= @recipe.servingsize %> people
+    </h4>
+
+    <table class="button-margin">
+      <% if current_user.admin == true or @recipe.user == current_user %>
+        <td class="white"><%= link_to edit_recipe_path(@recipe), :class => 'btn btn-warning' do %>
+          <span class="glyphicon glyphicon-pencil white"></span>
+          <span class="white">Edit</span>
+          <% end %>
+        </td>
+      <% end %>
+      <td class="white"><%= link_to recipes_path, :class => 'btn btn-primary' do %>
+        <span class="glyphicon glyphicon-arrow-left white"></span>
+          <span class="white">Back</span>
+        <% end %>
+      </td>
+    </table>
+
+</div>
+
+  <div class="full-circle">
+    <h2 class="titlebar">Description</h2>
+    <h4>
+      <%= simple_format(@recipe.description, class: "body-section") %>
+    </h4>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-6">
+      <div class="full-circle">
+        <h4 class="titlebar">Ingredients</h4>
+        <div class="body-section">
+          <ul class="body-section">
+            <% @recipe.ingredients.each_line do |line| %>
+              
+              <li class="text-left"><%= line.chomp %></li>
+              
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-6">
+      <div class="full-circle">
+        <h4 class="titlebar">Instructions</h4>
+        <p>
+          <%= simple_format(@recipe.instructions, class: "text-left body-section") %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+<br>
+
+<h3>Comments</h3>
+<hr>
+<% %>
+<% @comments.each do |comment| %>
+  <div class="row container-fluid comment">
+    <div class="col-lg-1 col-md-2 col-sm-2  col-xs-3 pic-no-margin">
+      <%= image_tag comment.user.avatar.url(:thumb) ,class: "img-responsive sm-thumb"%>
+    </div>
+    <div class="col-lg-11 col-md-10 col-sm-10 col-xs-9">
+      <div class="bubble">
+        <div class="row">
+          <div class="col-md-9 col-sm-9">
+            <h4 class="text-left"><strong><%= comment.user.name %></strong> commented on <%= comment.created_at.strftime("%d %b. %Y") %></h4>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <% if current_user.admin == true or @recipe.user == current_user %>
+              <table class="button-margin">
+                <td class="white"><%= link_to edit_comment_path(comment), :class => '' do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  Edit
+                  <% end %>
+                </td>
+                
+                <td class="white"><%= link_to comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => '' do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+                  Delete
+                  <% end %>
+                </td>
+              </table>
+            <% end %>
+          </div>
+        </div>
+        <div class="comment-section">
+          <p class="text-left"><%= simple_format(comment.body, class: "text-left") %></p>
+        </div>
+        
+      </div>
+    
+    </div>
+  </div>
+  <hr>
+<% end %>
+
+
+
+<h4>Add a Comment</h4>
+<%= render 'comments/form' %>
+

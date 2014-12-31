@@ -1,0 +1,131 @@
+<body class="">
+<h1>Listing Recipes</h1>
+
+<hr>
+<% c = 0 %>
+<% @recipes.each do |recipe| %>
+  <% c= c+1 %>
+  <% if c%2 == 1%>
+    <div class="container-fluid">
+      <div class="col-md-5 col-sm-6 col-xs-12 col-sm-offset-0">
+        <%= image_tag(recipe.picture.url(:md), class: "img-responsive rounded-pic") %>
+      </div>
+      <div class="col-md-7 col-sm-6 col-xs-12">
+        <div class="full-circle">
+          <h3 class="titlebar"><%= recipe.name %></h3>
+          <div class="body-section">
+            <p>Creator: <%= recipe.user.name %></p>
+            <p>
+              <table class="button-margin ">
+                
+                <td class="white"><%= link_to recipe, :class => 'btn btn-primary' do %>
+                  <span class="fa fa-info white"></span>
+                  <span class="white">Show</span>
+                  <% end %>
+                </td>
+                <% if current_user.admin == true or recipe.user == current_user %>
+                  
+                  <td class="white"><%= link_to edit_recipe_path(recipe), :class => 'btn btn-warning' do %>
+                    <span class="glyphicon glyphicon-pencil white"></span>
+                    <span class="white">Edit</span>
+                    <% end %>
+                  </td>
+                  <td class="white"><%= link_to recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' do %>
+                    <span class="fa fa-remove white"></span>
+                    <span class="white">Delete</span>
+                    <% end %>
+                  </td>
+
+                <% end %>
+              </table>
+            </p>
+            <p><%= simple_format(recipe.description, class: "text-center") %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% else %>
+  <!--stagered view-->
+    <div class="container-fluid hidden-xs">
+      <div class="col-md-7 col-sm-6 col-xs-12">
+        <div class="full-circle">
+          <h3 class="titlebar"><%= recipe.name %></h3>
+          <div class="body-section">
+            <p>Creator: <%= recipe.user.name %></p>
+            <p>
+              <table class="button-margin ">
+                
+                <td class="white"><%= link_to recipe, :class => 'btn btn-primary' do %>
+                  <span class="fa fa-info white"></span>
+                  <span class="white">Show</span>
+                  <% end %>
+                </td>
+                <% if current_user.admin == true or recipe.user == current_user %>
+                  
+                  <td class="white"><%= link_to edit_recipe_path(recipe), :class => 'btn btn-warning' do %>
+                    <span class="glyphicon glyphicon-pencil white"></span>
+                    <span class="white">Edit</span>
+                    <% end %>
+                  </td>
+                  <td class="white"><%= link_to recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' do %>
+                    <span class="fa fa-remove white"></span>
+                    <span class="white">Delete</span>
+                    <% end %>
+                  </td>
+
+                <% end %>
+              </table>
+            </p>
+            <p><%= simple_format(recipe.description, class: "text-center") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-6 col-xs-12 col-sm-offset-0">
+        <%= image_tag(recipe.picture.url(:md), class: "img-responsive rounded-pic") %>
+      </div>
+    </div>
+    <!--For Mobile View-->
+    <div class="container-fluid visible-xs">
+      <div class="col-md-5 col-sm-6 col-xs-12 col-sm-offset-0">
+        <%= image_tag(recipe.picture.url(:md), class: "img-responsive rounded-pic") %>
+      </div>
+      <div class="col-md-7 col-sm-6 col-xs-12">
+        <div class="full-circle">
+          <h3 class="titlebar"><%= recipe.name %></h3>
+          <div class="body-section">
+            <p>Creator: <%= recipe.user.name %></p>
+            <p>
+              <table class="button-margin ">
+                
+                <td class="white"><%= link_to recipe, :class => 'btn btn-primary' do %>
+                  <span class="fa fa-info white"></span>
+                  <span class="white">Show</span>
+                  <% end %>
+                </td>
+                <% if current_user.admin == true or recipe.user == current_user %>
+                  
+                  <td class="white"><%= link_to edit_recipe_path(recipe), :class => 'btn btn-warning' do %>
+                    <span class="glyphicon glyphicon-pencil white"></span>
+                    <span class="white">Edit</span>
+                    <% end %>
+                  </td>
+                  <td class="white"><%= link_to recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' do %>
+                    <span class="fa fa-remove white"></span>
+                    <span class="white">Delete</span>
+                    <% end %>
+                  </td>
+
+                <% end %>
+              </table>
+            </p>
+            <p><%= simple_format(recipe.description, class: "text-center") %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Mobile View-->
+    <hr>
+  <% end %>
+<% end %>
+</body>

@@ -1,0 +1,39 @@
+// Place all the styles related to the recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "varibles";
+
+table {
+	td {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+.img-responsive {
+	vertical-align: middle;
+	height: 100%;
+
+}
+.helper {
+	display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.vcenter {
+	vertical-align: middle;
+}
+
+#recipe_picture {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.show-image {
+  height: 400px;
+  width: auto;
+}
+
+//.recipe-body {
+//	background-color: #d1eaff;
+//}

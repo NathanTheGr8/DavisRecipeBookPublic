@@ -1,0 +1,19 @@
+<h4>
+  Name:
+  <%= current_user.name %>
+</h4>
+<p>
+	<%= image_tag(current_user.avatar.url(:md), class: "img-responsive rounded-pic") %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= current_user.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= current_user.password %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(current_user) %> |
+<%= link_to 'To Recipes', recipes_path %>

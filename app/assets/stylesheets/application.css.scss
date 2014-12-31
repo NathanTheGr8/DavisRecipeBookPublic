@@ -1,0 +1,327 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// font aweasome https://github.com/FortAwesome/font-awesome-sass
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+@import "varibles";
+@import "recipes";
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $base;
+  &:hover {
+    color: $lightbase;
+    background: transparent;
+  }
+}
+
+/*nav bar*/
+
+.navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  border: 0;
+  .navbar-toggle {
+    background-color: darken($titlebar, 15%);
+  }
+
+  .navbar-toggle:hover {
+    background-color: darken($titlebar, 25%);
+  }
+  li {
+    //background-color: rgba(255,255,255,.7);
+  }
+  .navbar-default.transparent {
+  background-color: $titlebar;
+  }
+
+  @media (min-width: 767px) {
+	.navbar-default.transparent {
+	  background-color: $titlebar;
+	}
+  }
+
+  @media (max-width: 766px) {
+	.navbar-default .navbar-nav > .home-static {
+	   background-color: $titlebar;
+	}
+  }
+
+  .nav-text {
+  font-size: 180%;
+	font-weight: 600;
+	color: $base;
+    &:hover {
+      color: $darkbase;
+    }
+  }
+
+  .btn {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+#navbar-main {
+  background-color: $titlebar;
+}
+
+//@media (min-width: 767px) {
+//  #navbar-main {
+//    background-color: $titlebar;
+//  }
+//}
+/*end Nav Bar*/
+
+
+
+body {
+	text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  text-align: center;
+}
+
+.paddingTop {
+  padding-top: 60px;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.red {
+	color: $red;
+  &:hover {
+    color: darken($red, 13.5%);
+  }
+}
+
+.green {
+	color: $green;
+  &:hover {
+    color: darkenen($green, 13.5%);
+  }
+}
+
+.yellow {
+	color: $yellow;
+  &:hover {
+    color: darken($yellow, 13.5%);
+  }
+}
+
+.white {
+  color: #ffffff;
+}
+
+.pull-left {
+  text-align: left;
+}
+
+.pull-right {
+  text-align: right;
+}
+
+
+.fa {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}
+
+.button-margin {
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
+
+.form-height {
+  height: 100px;
+}
+
+.pic-no-margin {
+  margin: 0px; 
+  padding: 0px;
+}
+
+.rounded-pic {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.comment {
+  .sm-thumb {
+    height: 75px;
+    width: auto;
+    margin: auto; 
+    padding: 0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  @media (min-width:520px){
+    .sm-thumb {
+      height: 100px;
+      width: auto;
+      margin: auto; 
+      padding: 0px;
+    }
+  }
+  .bubble 
+  {
+  position: relative;
+  width: 100%;
+  padding: 0px;
+  background: $titlebar;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+    h1,h2,h3,h4,h5,h6 {
+      background: $titlebar;
+      padding: 5px;
+      margin: 5px 10px 5px 10px;
+      -webkit-border-top-left-radius: 10px;
+      -webkit-border-top-right-radius: 10px;
+      -moz-border-top-left-radius: 10px;
+      -moz-border-top-right-radius: 10px;
+      border-radius-top-right: 10px;
+      border-radius-top-left: 10px;
+    }
+    .button-margin {
+        margin: 10px 10px 10px 10px;
+        padding: 5px;
+      }
+    .comment-section {
+      //height: 100%;
+      width: 100%;
+      background: $body;
+      padding: 5px;
+      margin: 0px;
+      -webkit-border-bottom-left-radius: 10px;
+      -webkit-border-bottom-right-radius: 10px;
+      -moz-border-bottom-left-radius: 10px;
+      -moz-border-bottom-right-radius: 10px;
+      border-radius-bottom-right: 10px;
+      border-radius-bottom-left: 10px;
+    }
+    p {
+      margin: 5px 10px 5px 10px;
+    }
+  }
+
+  .bubble:after 
+  {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 8px 10px 8px 0;
+  border-color: transparent $titlebar;
+  display: block;
+  width: 0;
+  z-index: 1;
+  left: -10px;
+  top: 12px;
+  }
+}
+
+.full-circle {
+  background-color: $body;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 0px;
+  margin: 10px;
+
+  .titlebar {
+    background: $titlebar;
+    padding: 10px;
+    margin: 0px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-top-left-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    border-radius-top-right: 10px;
+    border-radius-top-left: 10px;
+  }
+  .body-section {
+    //height: 100%;
+    width: 100%;
+    background: $body;
+    padding: 10px;
+    margin: 0px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    border-radius-bottom-right: 10px;
+    border-radius-bottom-left: 10px;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    padding: 0px;
+    margin: 0px;
+  }
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+  .sm-thumb {
+    height: 75px;
+    width: auto;
+    margin: auto; 
+    padding: 0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  @media (min-width:520px){
+    .sm-thumb {
+      height: 100px;
+      width: auto;
+      margin: auto; 
+      padding: 0px;
+    }
+  }
+  
+}
